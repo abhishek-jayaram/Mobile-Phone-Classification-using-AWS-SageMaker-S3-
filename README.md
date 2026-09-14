@@ -19,21 +19,6 @@ An end-to-end Machine Learning project that classifies mobile phone price ranges
 
 ---
 
-## 📂 Project Structure
-```text
-├── data/                  # Raw and processed datasets
-├── notebooks/             # Jupyter notebooks for EDA and model training
-├── src/
-│   ├── train.py           # Model training and optimization script
-│   └── app.py             # Inference API (Flask/FastAPI)
-├── Dockerfile             # Docker container configuration
-├── requirements.txt       # Python dependencies
-├── model.joblib           # Trained model artifact (git-ignored)
-└── README.md              # Project documentation
-```
-
----
-
 ## 💻 Getting Started
 
 ### 1. Prerequisites
@@ -88,41 +73,6 @@ docker push your-account-id.dkr.ecr.your-region.amazonaws.com/mobile-classifier:
 2. Link an environment variable `MODEL_S3_PATH` pointing to your S3 bucket.
 3. Expose the function securely using **Amazon API Gateway** to receive HTTP POST requests.
 
----
-
-## 🔌 API Usage Example
-
-### Request
-`POST https://your-api-gateway-url.amazonaws.com/predict`
-
-**Body (JSON):**
-```json
-{
-  "battery_power": 1043,
-  "blue": 1,
-  "clock_speed": 1.8,
-  "dual_sim": 1,
-  "fc": 14,
-  "four_g": 1,
-  "int_memory": 5,
-  "m_dep": 0.1,
-  "mobile_wt": 193,
-  "n_cores": 3,
-  "pc": 16,
-  "px_height": 226,
-  "px_width": 1412,
-  "ram": 3476,
-  "sc_h": 12,
-  "sc_w": 7,
-  "talk_time": 2,
-  "three_g": 0,
-  "touch_screen": 1,
-  "wifi": 0
-}
-```
-
-### Response
-```json
 {
   "prediction": 3,
   "price_range": "Very High Cost"
